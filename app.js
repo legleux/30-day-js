@@ -31,7 +31,7 @@ app.get('/:lesson', (req, res) =>{
             res.render('index', { title: message, lessons: lessons, message: message })
     }
     title = `Lesson ${lesson} - ${lesson_title}`
-    res.render(`${lesson}`, { title, lesson })
+    res.render(`${lesson}`, { title, lesson, lesson_title })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
