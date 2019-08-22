@@ -1,0 +1,12 @@
+extends layout.pug
+
+block scripts
+    link(rel='stylesheet', href='/2.css', type='text/css')
+
+block content
+    div(class='clock')
+        div(class='clock-face')
+            div(class='hand hour-hand')
+            div(class='hand min-hand')
+            div(class='hand second-hand')
+    script(src='2.js')

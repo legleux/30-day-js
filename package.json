@@ -1,0 +1,19 @@
+{
+  "name": "30-days",
+  "version": "2.0.0",
+  "description": "js 30 day challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon -e js,pug start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

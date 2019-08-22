@@ -1,0 +1,10 @@
+extends layout.pug
+
+block head
+  title= title
+block body
+  h1(class='header')= message
+
+  each lesson in lessons
+    br
+    a(href=lesson) Lesson #{lesson}
