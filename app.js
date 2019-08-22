@@ -4,30 +4,34 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-something = {
-    id: 1,
-    name: 'boobert',
-    occ: 'peaknuckle'
-}
-
 app.set('view engine', 'pug')
 app.use(express.static('public/javascripts'))
 app.use(express.static('public/css'))
 
 
-var lessons = [2]
+var lessons = [2, 3]
 let title = "Lesson "
-// pass the list of lessons in to dynamically render list of lessons done
+let lesson_title = ''
+
 app.get('/', (req, res) => {
     res.render('index', { title: 'Hey', lessons: lessons, message: '30 Day Javascript Challenge!' })
 })
 
-
-let lesson = '2'
-app.get('/' + `${lesson}`, (req, res) =>{
-    title = `Lesson ${lesson} - JS + CSS Clock`
-    res.render(`${lesson}`, {something, title})
+app.get('/:lesson', (req, res) =>{
+    lesson = req.params.lesson
+    switch(lesson) {
+        case '2':
+            lesson_title = 'JS + CSS Clock'
+            break;
+        case '3':
+            lesson_title = 'Update CSS Variables with JS!'
+            break;
+        default:
+            let message = '30 Day Javascript Challenge!'
+            res.render('index', { title: message, lessons: lessons, message: message })
+    }
+    title = `Lesson ${lesson} - ${lesson_title}`
+    res.render(`${lesson}`, { title, lesson })
 })
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

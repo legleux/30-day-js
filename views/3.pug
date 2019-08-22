@@ -1,0 +1,8 @@
+extends layout.pug
+
+block scripts
+    link(rel='stylesheet', href=`/${lesson}.css`, type='text/css')
+
+    div(class=controls)
+        label(for=spacing) Spacing:
+        input(type=range, name=spacing)
