@@ -9,7 +9,7 @@ app.use(express.static('public/javascripts'))
 app.use(express.static('public/css'))
 
 
-var lessons = [2, 3, 4]
+var lessons = [2, 3, 5 ]
 let title = "Lesson "
 let lesson_title = ''
 
@@ -26,8 +26,11 @@ app.get('/:lesson', (req, res) =>{
         case '3':
             lesson_title = 'Update CSS Variables with JS!'
             break;
-        case '4':
-            lesson_title = 'Array Cardio Day'
+        // case '4':
+        //     lesson_title = 'Array Cardio Day'
+        case '5':
+            lesson_title = 'Flex Panels Image Gallery'
+            break;
         default:
             let message = '30 Day Javascript Challenge!'
             res.render('index', { title: message, lessons: lessons, message: message })
