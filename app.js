@@ -7,11 +7,14 @@ const port = 3000
 app.set('view engine', 'pug')
 app.use(express.static('public/javascripts'))
 app.use(express.static('public/css'))
+app.use(express.static('public/images/'))
 
+// app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-var lessons = [2, 3, 5 ]
+var lessons = [2, 3, 5, 6]
 let title = "Lesson "
 let lesson_title = ''
+
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Hey', lessons: lessons, message: '30 Day Javascript Challenge!' })
@@ -30,6 +33,9 @@ app.get('/:lesson', (req, res) =>{
         //     lesson_title = 'Array Cardio Day'
         case '5':
             lesson_title = 'Flex Panels Image Gallery'
+            break;
+        case '6':
+            lesson_title = 'Ajax Type Ahead'
             break;
         default:
             let message = '30 Day Javascript Challenge!'

@@ -1,0 +1,12 @@
+extends layout.pug
+
+
+//- block scripts
+//-       link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Amatic+SC', type='text/css')
+
+block content
+    form( class="search-form")
+    input(type="text", class="search", placeholder="City or State")
+    ul(class="suggestions")
+        li Filter for city
+        li or a state
