@@ -21,7 +21,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:lesson', (req, res) =>{
-    lesson = req.params.lesson
+    lesson = req.params.lesson;
+    vars = [];
+    page_vars = [];
     switch(lesson) {
         case '2':
             lesson_title = 'JS + CSS Clock'
@@ -37,12 +39,21 @@ app.get('/:lesson', (req, res) =>{
         case '6':
             lesson_title = 'Ajax Type Ahead'
             break;
+        // case '7':
+        //     lesson_title = "Array Cardio Day 2"
+        //     var vars = require('./public/javascripts/7.js')
+            // console.log(vars)
+            page_vars['people'] = vars.people
+
+
+            break;
         default:
             let message = '30 Day Javascript Challenge!'
             res.render('index', { title: message, lessons: lessons, message: message })
     }
     title = `Lesson ${lesson} - ${lesson_title}`
-    res.render(`${lesson}`, { title, lesson, lesson_title })
+    console.log(page_vars['people'])
+    res.render(`${lesson}`, { title, lesson, lesson_title, varis: page_vars })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
