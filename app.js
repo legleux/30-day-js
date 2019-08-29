@@ -11,7 +11,7 @@ app.use(express.static('public/images/'))
 
 // app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-var lessons = [2, 3, 5, 6]
+var lessons = [2, 3, 5, 6, 8]
 let title = "Lesson "
 let lesson_title = ''
 
@@ -44,9 +44,10 @@ app.get('/:lesson', (req, res) =>{
         //     var vars = require('./public/javascripts/7.js')
             // console.log(vars)
             page_vars['people'] = vars.people
-
-
             break;
+        case '8':
+            lessonTitle = "";
+            break
         default:
             let message = '30 Day Javascript Challenge!'
             res.render('index', { title: message, lessons: lessons, message: message })
