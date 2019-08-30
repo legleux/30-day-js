@@ -1,0 +1,20 @@
+extends layout.pug
+
+block content
+    -
+        var items = [
+        'This is a inbox layout',
+        "Check one item",
+        "Hold down your shift key",
+        "check another item",
+        "Everything in between should also be checked",
+        "don't use any libs",
+        "just js and my own gritty grits",
+        "yay!"
+        ];
+
+    div(class="inbox")
+      each item, index in items
+        div(class="item")
+            input( type='checkbox' )
+            p=item
