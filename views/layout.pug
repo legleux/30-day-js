@@ -1,14 +1,13 @@
 //- layout.pug
 html
-  block head
   head
     include includes/head.pug
+    block head
 
     block style
     block scripts
 
     block body
       block content
-    script(src=`${lesson}.js`)
 
     block foot

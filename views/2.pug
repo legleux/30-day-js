@@ -3,8 +3,10 @@ extends layout.pug
 block scripts
 
 block content
+
     div(class='clock')
         div(class='clock-face')
             div(class='hand hour-hand')
             div(class='hand min-hand')
             div(class='hand second-hand')
+    include includes/lesson.pug
