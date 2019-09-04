@@ -11,7 +11,7 @@ app.use(express.static('public/images/'))
 
 // app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-var lessons = [2, 3, 5, 6, 8, 10, 11]
+var lessons = [2, 3, 5, 6, 8, 10, 11, 12]
 let title = "Lesson "
 let lesson_title = ''
 
@@ -53,6 +53,9 @@ app.get('/:lesson', (req, res) =>{
             break;
         case '11':
             lessonTitle = "HTML5 Video Player"
+            break;
+        case '12':
+            lessonTitle = "Key Code"
             break;
         default:
             let message = '30 Day Javascript Challenge!'
