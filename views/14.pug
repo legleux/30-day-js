@@ -1,0 +1,50 @@
+extends layout.pug
+
+block content
+    div(class="heading")
+        h1 Javascript Arrays and references
+    div(class="example")
+        div(class="list list1")
+            - people1 = ["Michael", "Steph", "Sam", "Albert"]
+            h3 Original People1 Array
+            ul(class="people")
+                each person in people1
+                    li= person
+        div(class="list list2")
+            p bobert has been added to "people2" and yet, "people1" has been modified. i.e.
+            ol
+                li people2 = people1
+                li people2[3] = "bobert"
+            - people2 = people1
+            - people2[3] = "bobert"
+                h3 People1
+                ul(class="people")
+                    each person in people1
+                        li= person
+                h3 People2
+                ul(class="people")
+                    each person in people2
+                        li= person
+        div(class="list list3")
+                    p A new array is created with <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax"> javascript's <b>spread</b> operator </a> and the original array isn't modified
+                    p people3 = ["cat", "dog", "pangolin"]
+                    h3 People3
+                    ul(class="people")
+                        - people3 = ["cat", "dog", "pangolin"]
+                        each person in people3
+                            li= person
+                    - people4 = [...people3]
+                    p people4 = [...people3]
+                    h3 People4
+                    ul(class="people")
+                        each person in people3
+                            li= person
+
+                    ol
+                        li let people4 = [...people3] This <b>copies</b> the array
+                        li people[2] = "anteater"
+                    - people4[2] = "anteater"
+                    h3 People4
+                    ul(class="people")
+                        each person in people4
+                            li= person
