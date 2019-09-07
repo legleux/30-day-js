@@ -1,0 +1,13 @@
+extends layout.pug
+block content
+
+    div(class="wrapper")
+        h2 LOCAL TAPAS
+        ul(class="plates")
+            li Loading tapas...
+        form(class="add-items")
+            input(type="text", name="item" placeholder="Item Name" required)
+            input(type="submit" value="+ Add Item")
+        button(class='check-button') Check All
+        button(class='clear-button') Clear All
+        button(class='clear-list') Clear List
