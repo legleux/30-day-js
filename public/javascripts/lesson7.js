@@ -1,4 +1,4 @@
-var vars = require('./public/javascripts/7.js')
+var vars = require('./7.js')
 let people = vars.people
 let comments = vars.comments
 
