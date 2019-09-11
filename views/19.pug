@@ -1,0 +1,27 @@
+extends layout.pug
+block content
+  div(class="photobooth")
+    div(class="controls")
+    button(onClick="takePhoto()") Take Photo
+    div(class="rgb")
+      label(for="rmin") Red Min:
+      input(type="range" min=0 max=255 name="rmin")
+      label(for="rmax") Red Max:
+      input(type="range" min=0 max=255 name="rmax")
+      br
+      label(for="gmin") Green Min:
+      input(type="range" min=0 max=255 name="gmin")
+      label(for="gmax") Green Max:
+      input(type="range" min=0 max=255 name="gmax")
+      br
+      label(for="bmin") Blue Min:
+      input(type="range" min=0 max=255 name="bmin")
+      label(for="bmax") Blue Max:
+      input(type="range" min=0 max=255 name="bmax")
+
+
+    canvas(class="photo")
+    video(class="player")
+    div(class="strip")
+
+  audio(class="snap" src="http://wesbos.com/demos/photobooth/snap.mp3" hidden)
