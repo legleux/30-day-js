@@ -6,3 +6,7 @@ h1 {
 .header {
   text-align: center;
 }
+
+.lessons-list {
+  list-style-type:none;
+}

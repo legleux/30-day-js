@@ -9,25 +9,19 @@ app.use(express.static('public/javascripts'))
 app.use(express.static('public/css'))
 app.use(express.static('public/images/'))
 
-// app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
-
 let lessons = require('./lessons')
 let title = "Lesson "
-let lesson_title = ''
 
 app.get('/', (req, res) => {
-    lessons = Object.keys(lessons)
     res.render('index', { title: 'Hey', lessons: lessons, message: '30 Day Javascript Challenge!' })
 })
 
 app.get('/:lesson', (req, res) =>{
-    lesson = Number(req.params.lesson);
-    vars = [];
-    page_vars = [];
-    lesson_title = lessons[lesson]
-    title = `Lesson ${lesson} - ${lesson_title}`
-    console.log(page_vars['people'])
-    res.render(`${lesson}`, { title, lesson, lesson_title, varis: page_vars })
+    let lesson = Number(req.params.lesson);
+    let lesson_title = lessons[lesson]
+    console.log(lesson_title)
+    // title = `${lesson} - ${lesson_title}` // BUG: Fix the title
+    res.render(`${lesson}`, { title, lesson, lesson_title })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

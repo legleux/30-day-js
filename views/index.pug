@@ -5,7 +5,11 @@ block head
 
 block body
   h1(class='header')= message
-
-  each lesson in lessons
-    br
-    a(href=lesson) Lesson #{lesson}
+  ul(class="lessons-list")
+    // - TODO: This doesn't seem ideal
+    each lesson in Object.entries(lessons)
+      - let lessonNumber = lesson[0]
+      - let lessonName = lesson[1]
+      //- TODO: This list is still ugly
+      li
+        a(href=lessonNumber) #{lessonNumber}: #{lessonName}
