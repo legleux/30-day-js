@@ -2,6 +2,9 @@
 
 const express = require('express')
 const app = express()
+const fs = require('fs')
+const https = require('https')
+// I did this: openssl req -nodes -new -x509 -keyout server.key -out server.cert
 const port = 3000
 
 app.set('view engine', 'pug')
@@ -24,4 +27,10 @@ app.get('/:lesson', (req, res) =>{
     res.render(`${lesson}`, { title, lesson, lesson_title })
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+https.createServer({
+    key: fs.readFileSync('./server.key'),
+    cert: fs.readFileSync('./server.cert')
+  }, app)
+  .listen(3000, function () {
+    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
+  })
