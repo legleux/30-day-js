@@ -2,7 +2,8 @@ extends layout.pug
 
 block scripts
 block content
-    h1(class='hl') #{lesson_title}
+    h2 Update CSS Variables with 
+        span(class='hl') JS
     div(class='controls')
         label(for='spacing') Spacing:
         input(type='range', name='spacing', min='10', max='200', value='10', data-sizing='px')
@@ -13,4 +14,4 @@ block content
         label(for='base_color') Base Color
         input(type='color', name='base', value='#ffc600')
 
-        img(src='https://source.unsplash.com/7bwQXzbF6KE/800x500')
+    img(src='https://source.unsplash.com/7bwQXzbF6KE/800x500')
