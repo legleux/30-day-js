@@ -36,7 +36,10 @@ app.get('/:lesson', (req, res) => {
     let lesson_title = lessons[lesson];
     title = `${lesson_title}`
 
-    if (lessonRequiresHTTPS.includes(lesson) && req.protocol == 'http') { // BUG: this doesn't seem right :( should probably check if the https server is running already i.e https.address() != null
+    if (lessonRequiresHTTPS.includes(lesson) && req.protocol == 'http') {
+        /* BUG: going from one https page to another starts the server again and errors with addr in use
+           this doesn't seem right :( should probably check if the https server is running already i.e https.address() != null
+           It's when you are on 19,20, 21, hit back, then go to them again... */
         const HTTPS_PORT = PORT + 443;
         httpsServer.listen(HTTPS_PORT, IP_ADDRESS);
         let hostname = req.headers.host.split(':')[0] // TODO: heavy handed to change the port
@@ -47,6 +50,6 @@ app.get('/:lesson', (req, res) => {
 })
 
 httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS}:${PORT}`));
-// TODO: would be nice if it opened the index like react-scripts-start does
-// via openBrowser.js but it also uses openChrome.applescript and a bunch of logic
-// BUG: going from one https page to another starts the server again and errors with addr in use
+// TODO: puppetter install chromium. Did I really need that for the lesson 4 or 7? remove it if not
+/* TODO: would be nice if it opened the index like react-scripts-start does
+   via openBrowser.js but it also uses openChrome.applescript and a bunch of logic */
