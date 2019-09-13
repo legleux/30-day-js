@@ -5,8 +5,7 @@ const https = require('https')
 const port = 3000
 const express = require('express')
 const app = express()
-
-const IP_ADDRESS = require('./getInterface') // gave up and used ip library. Kept either getting vbox virtual interface or the list then I couldn't differentiate as to which was the real NIC ip
+const IP_ADDRESS = '0.0.0.0';
 const PORT = 3000;
 
 var privateKey  = fs.readFileSync('./server.key', 'utf8');
@@ -50,3 +49,4 @@ app.get('/:lesson', (req, res) => {
 httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS}:${PORT}`));
 // TODO: would be nice if it opened the index like react-scripts-start does
 // via openBrowser.js but it also uses openChrome.applescript and a bunch of logic
+// BUG: going from one https page to another starts the server again and errors with addr in use
