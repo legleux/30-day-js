@@ -1,11 +1,24 @@
-// https://courses.wesbos.com/account/access/5cf5c3dc85f96c03c1e47c41/view/194130581
-
-const express = require('express')
-const app = express()
 const fs = require('fs')
+const http = require('http')
 const https = require('https')
 // I did this: openssl req -nodes -new -x509 -keyout server.key -out server.cert
 const port = 3000
+const express = require('express')
+const app = express()
+
+const IP_ADDRESS = require('./getInterface')
+const PORT = 3000;
+
+var privateKey  = fs.readFileSync('./server.key', 'utf8');
+var certificate = fs.readFileSync('./server.cert', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+https.createServer({
+    key: fs.readFileSync('./server.key'),
+    cert: fs.readFileSync('./server.cert')
+  }, app)
 
 app.set('view engine', 'pug')
 app.use(express.static('public/javascripts'))
@@ -27,11 +40,6 @@ app.get('/:lesson', (req, res) =>{
     res.render(`${lesson}`, { title, lesson, lesson_title })
 })
 
-https.createServer({
-    key: fs.readFileSync('./server.key'),
-    cert: fs.readFileSync('./server.cert')
-  }, app) // TODO: Does this still work?
-
-  app.listen(3000, function () {
-    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
-  })
+httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS, PORT}`));
+const HTTPS_PORT = PORT + 443;
+httpsServer.listen(HTTPS_PORT, IP_ADDRESS, ()=> console.log(`HTTPS Listening ${IP_ADDRESS, HTTPS_PORT}`));
