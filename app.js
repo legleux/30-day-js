@@ -29,15 +29,16 @@ let lessons = require('./lessons')
 let title = "Lesson "
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hey', lessons: lessons, message: '30 Day Javascript Challenge!' })
+    title = "30 Days of JS!"
+    res.render('index', { title: title, lessons: lessons, message: '30 Day Javascript Challenge!' })
 })
 
 app.get('/:lesson', (req, res) =>{
     let lesson = Number(req.params.lesson);
     let lesson_title = lessons[lesson]
     console.log(lesson_title)
-    // title = `${lesson} - ${lesson_title}` // BUG: Fix the title
-    res.render(`${lesson}`, { title, lesson, lesson_title })
+    title = `${lesson_title}` // BUG: Fix the title
+    res.render(`${lesson}`, { title: lesson_title, lesson, lesson_title })
 })
 
 httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS, PORT}`));
