@@ -2,7 +2,6 @@ const fs = require('fs')
 const http = require('http')
 const https = require('https')
 // I did this: openssl req -nodes -new -x509 -keyout server.key -out server.cert
-const port = 3000
 const express = require('express')
 const app = express()
 const IP_ADDRESS = '0.0.0.0';
