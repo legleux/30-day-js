@@ -1,0 +1,52 @@
+extends layout.pug
+
+block content
+
+  nav(class="top")
+    div(class="dropdownBackground")
+      span(class="arrow")
+    ul(class="cool")
+      li
+        a(href="#") About Me
+        div(class="dropdown dropdown1")
+          div(class="bio")
+            img(src="https://logo.clearbit.com/wesbos.com")
+            p Wes Bos sure does love web development. He teaches things like JavaScript, CSS and BBQ. Wait. BBQ isn't part of web development. It should be though!
+      li
+        a(href="#") Courses
+        ul(class="dropdown courses")
+          li
+            span(class="code") RFB 
+            a(href="https://ReactForBeginners.com") React For Beginners
+          li
+            span(class="code") ES6 
+            a(href="https://ES6.io") ES6 For Everyone
+          li
+            span(class="code") ODE 
+            a(href="https://LearnNode.com") Learn Node
+          li
+            span(class="code") TPU 
+            a(href="https://SublimeTextBook.com") Sublime Text Power User
+          li
+            span(class="code") WTF 
+            a(href="http://Flexbox.io") What The Flexbox?!
+          li
+            span(class="code") RID 
+            a(href="https://CSSGrid.io") CSS Grid
+          li
+            span(class="code") LRX 
+            a(href="http://LearnRedux.com") Learn Redux
+          li
+            span(class="code") CLPU 
+            a(href="http://CommandLinePowerUser.com") Command Line Power User
+          li
+            span(class="code") MMD 
+            a(href="http://MasteringMarkdown.com") Mastering Markdown
+          
+      li
+        a(href="#") Other Links
+        ul(class="dropdown dropdown3")
+          li #[a(class="button" href="http://twitter.com/wesbos") Twitter]
+          li #[a(class="button" href="http://facebook.com/wesbos.developer") Facebook]
+          li #[a(class="button" href="http://wesbos.com") Blog]
+          li #[a(class="button" href="http://wesbos.com/courses") Course Catalog]
