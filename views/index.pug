@@ -1,13 +1,1 @@
 extends layout.pug
-
-block body
-  h1(class="d-flex justify-content-center" class="display-4" class="header")= message
-  div(class='container-fluid' class="d-flex justify-content-center")
-    ul(class="lessons-list")
-      // - TODO: This doesn't seem ideal
-      each lesson in Object.entries(lessons)
-        - let lessonNumber = lesson[0]
-        - let lessonName = lesson[1]
-        //- TODO: This list is still ugly
-        li
-          a(href=lessonNumber) #{lessonNumber}: #{lessonName}

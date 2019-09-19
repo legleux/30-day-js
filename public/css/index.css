@@ -16,3 +16,7 @@ ul {
 .lessons-list {
   list-style-type:none;
 }
+
+a:visited {
+  color:purple
+}
