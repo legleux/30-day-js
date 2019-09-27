@@ -1,0 +1,10 @@
+extends layout.pug
+block content
+  h1 Whack-a-mole! #[span(class="score") 0]
+  button(onClick="startGame()") Start!
+
+  div(class="game")
+    //- tell me there's a better way please
+    each i in [...Array(7).keys()].slice(1) 
+      div(class=`hole hole${i}`)
+        div(class="mole")
