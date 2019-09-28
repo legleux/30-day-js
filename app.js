@@ -25,7 +25,7 @@ const lessonRequiresHTTPS = [19, 20, 21]
 
 app.get('/', (req, res) => {
     title = "30 Days of JS!"
-    res.render('index', { title: title, lessons: lessons, message: '30 Day Javascript Challenge!' });
+    res.render('index', { title: title, lessons: lessons, message: 'Succeeded the 30 Day Javascript Challenge!' });
     if(httpsServer.address()){
         httpsServer.close()
     }
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 app.get('/:lesson', (req, res) => {
     let lesson = Number(req.params.lesson);
-    let lesson_title = lessons[lesson];
+    let lesson_title = lessons.find( l => l.number === lesson).description;
     title = `${lesson_title}`
 
     if (lessonRequiresHTTPS.includes(lesson) && req.protocol == 'http') {
@@ -48,8 +48,16 @@ app.get('/:lesson', (req, res) => {
 
 httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS}:${PORT}`));
 // BUG: Broke createLesson.js with lesson refactor (doesn't really mater since I'm done)
+// BUG: Home link missing on https pages
 // TODO: puppetter install chromium. Did I really need that for the lesson 4 or 7? remove it if not
 /* TODO: would be nice if it opened the index like react-scripts-start does
    via openBrowser.js but it also uses openChrome.applescript and a bunch of logic */
 // TODO: index tooltip for things learned on lesson
 // TODO: link on each page to go back to index
+
+/* Learned
+layout.pug/index
+    There is no way to "uncascade" css. the homelink _will_ inherit css per lesson
+    absolute positioning
+    exploding objects into attributes with "&attributes" for index link on each page
+*/
