@@ -8,7 +8,7 @@
     background-color: #009218;
     color: rgb(248, 248, 248);
     text-align: center;
-    /* display: inline-block; */
+    display: inline-block;
     border-radius: 8px;
     padding: 2px 5px 2px 5px;
   }
