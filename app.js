@@ -17,6 +17,7 @@ app.set('view engine', 'pug')
 app.use(express.static('public/javascripts'))
 app.use(express.static('public/css'))
 app.use(express.static('public/images/'))
+app.use(express.static('public/sounds'))
 
 let lessons = require('./lessons');
 let title = "Lesson ";

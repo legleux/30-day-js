@@ -46,13 +46,14 @@ body {
 }
 
 .second-hand {
+  height: 4px;
 }
 .min-hand {
   transform: rotate(90deg) scale(1.5);
-
   height: 4px;
 }
 
 .hour-hand {
-  /* height: 2px; */
+  width: 40%;
+  left: 10%
 }

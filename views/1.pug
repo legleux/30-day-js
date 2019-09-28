@@ -1,0 +1,20 @@
+extends layout.pug
+block content
+  -
+    var keys = [{letter:'A',keycode:'65',sound:'clap'},
+                {letter:'S',keycode:'83',sound:'hihat'},
+                {letter:'D',keycode:'68',sound:'kick'},
+                {letter:'F',keycode:'70',sound:'openhat'},
+                {letter:'G',keycode:'71',sound:'boom'},
+                {letter:'H',keycode:'72',sound:'ride'},
+                {letter:'J',keycode:'74',sound:'snare'},
+                {letter:'K',keycode:'75',sound:'tom'},
+                {letter:'L',keycode:'76',sound:'tink'}
+              ]
+  
+  div(class='keys')
+    each key in keys
+      .key(data-key=key.keycode)
+        kbd #{key.letter}
+        span(class='sound') #{key.sound}
+      audio(data-key=key.keycode src=`${key.sound}.wav`)
