@@ -19,7 +19,7 @@ app.use(express.static('public/css'))
 app.use(express.static('public/images/'))
 app.use(express.static('public/sounds'))
 
-let lessons = require('./lessons');
+const lessons = require('./lessons.json');
 let title = "Lesson ";
 const lessonRequiresHTTPS = [19, 20, 21]
 
