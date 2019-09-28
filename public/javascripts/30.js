@@ -47,9 +47,9 @@ moles.forEach( mole => {
     mole.addEventListener('click', bonk);
 })
 
-
-
-/*
+// TODO: Show the time remaining
+// BUG You can whack-a-mole multiple times
+/* NOTE Learned
 isTrusted prevents fake js events
 Slide image in
 Maybe quickest way to create functionality similar to py range()?
