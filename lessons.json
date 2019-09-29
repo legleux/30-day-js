@@ -32,6 +32,10 @@
     "description": "Fun with HTML5 Canvas"
   },
   {
+    "number": 9,
+    "description": "Devtools Domination"
+  },
+  {
     "number": 10,
     "description": "Hold shift to check multiple boxes"
   },
