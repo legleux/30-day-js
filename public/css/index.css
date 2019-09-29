@@ -1,36 +1,59 @@
 html body {
-  background-image: url(cork-board.png);
+  background-image: url(argyle.png);
+  font-size: 14px;
+}
+
+.jumbotron {
+  background-image: url("circuit2.jpg");
+  border-radius: 5px;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+h1 {
+  background-color: rgba(88, 194, 93, 0.993);
+  box-shadow: 0 0 0 4px rgba(122, 255, 96, 0.226);
+  border-radius: 5px;
+  color:  rgb(23, 59, 23);
+  font-size: 24px;
+  font-weight: bold;
+  font-family: ‘Shift’, sans-serif;
 }
 
 .wrapper {
   background:url(hotel-wallpaper.png);
-  filter: green;
-  /* width:300px; */
-  /* height:300px; */
+  margin: 5px;
+  border-radius: 15px;
+
 }
 
 .content {
-  /* background-color: green; */
-  /* opacity: 0.2; */
-  /* width:80vh; */
-  /* height:100%; */
+  background-color: rgba(0, 255, 13, 0.11);
+  box-shadow: 0 0 0 7px rgba(122, 255, 96, 0.11);
+  padding: 20px;
+  border-radius: 15px;
+
 }
 
-ul {
-  /* display: flex; */
-  /* flex-flow: column wrap; */
-  /* max-height: 4em; */
-  /* height: 10vh; */
+.lessons-list ul {
+  list-style-type: none;
 }
 
-.header {
-  color:  forestgreen
-}
-.lessons-list {
-
-  list-style-type:none;
+a {
+  color: rgb(38, 63, 43);
 }
 
+li:hover {
+  background-color: rgba(64, 187, 39, 0.658);
+  text-decoration: none;
+
+}
 a:visited {
-  color:rgb(87, 0, 128)
+  color: maroon;
+}
+
+li {
+  transition: 0.5;
+
 }

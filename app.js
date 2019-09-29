@@ -9,6 +9,7 @@ const express = require('express')
 const app = express()
 const IP_ADDRESS = '0.0.0.0';
 const PORT = 3000;
+var browserSync = require('browser-sync');
 
 var privateKey  = fs.readFileSync('./server.key', 'utf8');
 var certificate = fs.readFileSync('./server.cert', 'utf8');
@@ -28,7 +29,7 @@ const lessonRequiresHTTPS = [19, 20, 21]
 
 app.get('/', (req, res) => {
     title = "30 Days of JS!"
-    res.render('index', { title: title, lessons: lessons, message: 'Succeeded the 30 Day Javascript Challenge!' });
+    res.render('index', { title: title, lessons: lessons, message: 'Success of the 30 Day Javascript Challenge!' });
     if(httpsServer.address()){
         httpsServer.close()
     }
@@ -49,7 +50,13 @@ app.get('/:lesson', (req, res) => {
     }
 })
 
-httpServer.listen(PORT, IP_ADDRESS, ()=> console.log(`HTTP Listening ${IP_ADDRESS}:${PORT}`));
+httpServer.listen(PORT, IP_ADDRESS, listening);
+function listening () {
+    browserSync({
+      proxy: 'localhost:' + PORT,
+      files: ['public/**/*.{js,css}', 'views/**/*.pug', 'app.js']
+    });
+  }
 // BUG: Broke createLesson.js with lesson refactor (doesn't really mater since I'm done)
 // BUG: Home link missing on https pages
 // TODO: puppetter install chromium. Did I really need that for the lesson 4 or 7? remove it if not

@@ -1,11 +1,13 @@
 [
   {
     "number": 1,
-    "description": "JavaScript Drumset"
+    "description": "JavaScript Drumset",
+    "learned": "Stuff"
   },
   {
     "number": 2,
-    "description": "JS + CSS Clock"
+    "description": "JS + CSS Clock",
+    "learned": "'n' things"
   },
   {
     "number": 3,

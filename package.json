@@ -4,7 +4,7 @@
   "description": "js 30 day challenge",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon -e js,pug start",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +19,7 @@
     "request-promise": "^4.2.4"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "nodemon": "^1.19.1"
   }
 }
